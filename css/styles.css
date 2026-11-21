@@ -34,12 +34,13 @@ main{ padding-top:85px; min-height:100vh; }
 @keyframes aparecer{ from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
 
 /* =========================================================
-   HERO
+   HERO (fondo con santo_angel.jpg)
    ========================================================= */
 .hero{
   min-height:calc(100vh - 85px);
-  background:linear-gradient(rgba(0,63,125,.8),rgba(0,63,125,.8)),
-    url('../assets/img/santo_angel.jpg') center/cover;
+  background:linear-gradient(rgba(0,63,125,.75),rgba(0,63,125,.75)),
+    url('../assets/img/santo_angel.jpg') center/cover no-repeat;
+  background-color:var(--azul); /* respaldo si la imagen no carga */
   display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center; color:#fff; padding:2rem 1rem;
 }
@@ -97,7 +98,6 @@ section{ padding:3rem 5%; }
 .sedes-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
 .sede-card{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.08); border-top:5px solid var(--azul-claro); }
 .sede-card.principal{ border-top-color:var(--dorado); }
-.sede-img{ width:100%; height:180px; object-fit:cover; display:block; }
 .sede-header{ background:var(--azul); color:#fff; padding:1.2rem; }
 .sede-header h3{ font-size:1.05rem; }
 .sede-header small{ font-size:.8rem; opacity:.85; }
@@ -109,4 +109,7 @@ section{ padding:3rem 5%; }
    DEPARTAMENTOS
    ========================================================= */
 .departamentos-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
-.dept-card{ background:#fff; padding:1.8rem 1.5rem; border
+.dept-card{ background:#fff; padding:1.8rem 1.5rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.08); border-bottom:4px solid var(--azul-claro); }
+.dept-card h3{ color:var(--azul); margin-bottom:.6rem; font-size:1.05rem; }
+.dept-card p{ color:#666; font-size:.88rem; margin-bottom:.8rem; }
+.dept-card .problema{ font-size:.8rem; color:var(--rojo); background:#f
