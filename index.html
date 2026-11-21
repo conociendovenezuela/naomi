@@ -4,177 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fundación Nacional por el Turismo Social en Venezuela</title>
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Tahoma,sans-serif; }
-  :root{
-    --azul:#003f7d; --azul-claro:#0077b6; --dorado:#f4a261;
-    --gris:#f4f6f9; --rojo:#e63946; --verde:#2a9d8f; --naranja:#f77f00;
-  }
-  body{ color:#333; line-height:1.6; background:#fff; }
-
-  /* HEADER */
-  header{
-    position:fixed; top:0; width:100%; background:var(--azul);
-    padding:.8rem 3%; display:flex; justify-content:space-between; align-items:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.2); z-index:1000; flex-wrap:wrap; gap:.6rem;
-  }
-  .logo{ font-size:.95rem; font-weight:bold; color:#fff; cursor:pointer; line-height:1.2; }
-  .logo small{ display:block; font-size:.68rem; color:var(--dorado); font-weight:400; }
-  nav{ display:flex; flex-wrap:wrap; gap:.15rem; }
-  nav button{
-    background:transparent; border:none; color:#fff; font-weight:500; font-size:.78rem;
-    padding:.45rem .7rem; border-radius:8px; cursor:pointer; transition:.3s; font-family:inherit;
-  }
-  nav button:hover{ background:rgba(255,255,255,.15); }
-  nav button.activo{ background:var(--dorado); color:var(--azul); font-weight:700; }
-
-  main{ padding-top:85px; min-height:100vh; }
-  .pestana{ display:none; }
-  .pestana.activa{ display:block; animation:aparecer .4s ease; }
-  @keyframes aparecer{ from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
-
-  /* HERO */
-  .hero{
-    min-height:calc(100vh - 85px);
-    background:linear-gradient(rgba(0,63,125,.8),rgba(0,63,125,.8)),
-      url('https://images.unsplash.com/photo-1488646953014-85cb44e25828') center/cover;
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    text-align:center; color:#fff; padding:2rem 1rem;
-  }
-  .hero h1{ font-size:2.2rem; margin-bottom:.5rem; max-width:900px; }
-  .hero .subtitulo{ font-size:.85rem; color:var(--dorado); margin-bottom:1rem; font-weight:600; letter-spacing:1px; }
-  .hero .slogan{ font-size:1.15rem; font-style:italic; margin-bottom:1.3rem; }
-  .hero p.desc{ font-size:1rem; max-width:700px; margin-bottom:2rem; }
-  .btn{
-    background:var(--dorado); color:#fff; padding:.85rem 2rem; border:none; border-radius:30px;
-    font-size:.95rem; cursor:pointer; transition:.3s; font-weight:600; font-family:inherit;
-  }
-  .btn:hover{ background:#e08b3e; transform:translateY(-2px); }
-  .btn-sec{ background:transparent; border:2px solid #fff; color:#fff; margin-left:.5rem; }
-  .btn-sec:hover{ background:#fff; color:var(--azul); }
-
-  /* SECCIONES */
-  section{ padding:3rem 5%; }
-  .section-title{ text-align:center; font-size:1.9rem; margin-bottom:.4rem; color:var(--azul); }
-  .section-sub{ text-align:center; color:#666; margin-bottom:2.2rem; font-size:.98rem; }
-
-  /* MISIÓN / VISIÓN */
-  .mv-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; max-width:1100px; margin:0 auto; }
-  .mv-card{ background:var(--gris); padding:2rem 1.8rem; border-radius:15px; border-top:5px solid var(--azul-claro); box-shadow:0 5px 20px rgba(0,0,0,.07); }
-  .mv-card h3{ color:var(--azul); font-size:1.3rem; margin-bottom:.8rem; }
-  .mv-card ul{ margin-left:1.2rem; margin-top:.5rem; }
-  .mv-card li{ margin-bottom:.4rem; font-size:.93rem; }
-
-  /* ORGANIGRAMA */
-  .organigrama{ background:var(--gris); }
-  .org-tree{ max-width:1100px; margin:0 auto; text-align:center; }
-  .org-node{ background:var(--azul); color:#fff; display:inline-block; padding:1rem 1.8rem; border-radius:12px; font-weight:600; box-shadow:0 4px 12px rgba(0,0,0,.15); }
-  .org-node.presidencia{ background:var(--azul-claro); font-size:1.1rem; }
-  .org-node small{ display:block; font-size:.78rem; font-weight:400; opacity:.9; }
-  .org-line-v{ width:3px; height:30px; background:#ccc; margin:0 auto; }
-  .org-line-h{ height:3px; background:#ccc; width:78%; margin:0 auto; }
-  .org-departamentos{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
-  .org-dept{
-    background:#fff; color:var(--azul); padding:1rem; border-radius:10px;
-    border:2px solid var(--azul-claro); font-weight:600; font-size:.9rem;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-  }
-  .org-dept.destacado{ border-color:var(--naranja); background:#fff8f0; }
-  .org-dept small{ display:block; font-weight:400; color:#666; margin-top:.4rem; font-size:.78rem; }
-  .nota-caso{ max-width:900px; margin:2rem auto 0; background:#fff8e1; border-left:5px solid var(--dorado); padding:1.2rem 1.5rem; border-radius:8px; font-size:.9rem; color:#5c3d00; }
-
-  /* SEDES */
-  .sedes-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
-  .sede-card{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.08); border-top:5px solid var(--azul-claro); }
-  .sede-card.principal{ border-top-color:var(--dorado); }
-  .sede-header{ background:var(--azul); color:#fff; padding:1.2rem; }
-  .sede-header h3{ font-size:1.05rem; }
-  .sede-header small{ font-size:.8rem; opacity:.85; }
-  .sede-body{ padding:1.2rem; font-size:.9rem; }
-  .sede-body p{ margin-bottom:.5rem; }
-  .sede-body strong{ color:var(--azul-claro); }
-
-  /* DEPARTAMENTOS */
-  .departamentos-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
-  .dept-card{ background:#fff; padding:1.8rem 1.5rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.08); border-bottom:4px solid var(--azul-claro); }
-  .dept-card h3{ color:var(--azul); margin-bottom:.6rem; font-size:1.05rem; }
-  .dept-card p{ color:#666; font-size:.88rem; margin-bottom:.8rem; }
-  .dept-card .problema{ font-size:.8rem; color:var(--rojo); background:#fdecee; padding:.6rem .8rem; border-radius:8px; border-left:3px solid var(--rojo); }
-
-  /* ALERTA */
-  .alerta{ max-width:1000px; margin:0 auto 2rem; background:#fdecee; border-left:5px solid var(--rojo); padding:1rem 1.5rem; border-radius:8px; font-size:.9rem; color:#7a1a24; }
-
-  /* FLUJO */
-  .flujo{ max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; }
-  .paso{ background:#fff; padding:1.5rem 1rem; border-radius:12px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,.08); border-top:4px solid var(--azul-claro); }
-  .paso .numero{ background:var(--azul); color:#fff; width:35px; height:35px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; margin:0 auto .7rem; }
-  .paso h4{ color:var(--azul); font-size:.95rem; margin-bottom:.4rem; }
-  .paso p{ font-size:.82rem; color:#666; }
-
-  /* TABLA */
-  .tabla-wrapper{ overflow-x:auto; max-width:1300px; margin:0 auto; }
-  table{ width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.08); min-width:1000px; }
-  thead{ background:var(--azul); color:#fff; }
-  th,td{ padding:.7rem; text-align:left; font-size:.82rem; }
-  tbody tr{ border-bottom:1px solid #eee; }
-  tbody tr:hover{ background:#f9fbfd; }
-  .estado{ padding:.2rem .6rem; border-radius:20px; font-size:.72rem; font-weight:600; color:#fff; display:inline-block; white-space:nowrap; }
-  .estado.operativo{ background:var(--verde); }
-  .estado.critico{ background:var(--rojo); }
-  .estado.reparacion{ background:var(--dorado); }
-  .estado.obsoleto{ background:var(--naranja); }
-  .filtros{ display:flex; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; justify-content:center; }
-  .filtros select{ padding:.55rem 1rem; border-radius:8px; border:1px solid #ddd; background:#fff; font-family:inherit; font-size:.85rem; }
-  .resumen{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; max-width:1300px; margin:0 auto 2rem; }
-  .num-card{ background:var(--azul); color:#fff; padding:1.1rem; border-radius:12px; text-align:center; }
-  .num-card .num{ font-size:1.6rem; font-weight:bold; }
-  .num-card .lbl{ font-size:.78rem; opacity:.9; }
-  .num-card.rojo{ background:var(--rojo); }
-  .num-card.naranja{ background:var(--naranja); }
-  .num-card.verde{ background:var(--verde); }
-
-  /* SOPORTE FORM */
-  .soporte{ background:var(--gris); }
-  .soporte-wrapper{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2.5rem; max-width:1100px; margin:0 auto; }
-  .soporte-info h3{ color:var(--azul); margin-bottom:1rem; }
-  .soporte-info ul{ list-style:none; }
-  .soporte-info li{ padding:.7rem 0; border-bottom:1px solid #ddd; font-size:.9rem; }
-  .soporte-info li strong{ color:var(--azul-claro); }
-  form{ display:flex; flex-direction:column; gap:.8rem; background:#fff; padding:2rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.08); }
-  form h3{ color:var(--azul); margin-bottom:.5rem; }
-  input,select,textarea{ padding:.8rem; border:1px solid #ddd; border-radius:10px; font-size:.9rem; font-family:inherit; }
-  textarea{ min-height:90px; resize:vertical; }
-  label{ font-size:.85rem; color:#555; font-weight:500; }
-
-  /* RECURSOS */
-  .recursos-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
-  .recurso-card{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.08); display:flex; flex-direction:column; }
-  .recurso-icono{ background:var(--azul-claro); color:#fff; padding:1.5rem; text-align:center; font-size:2.5rem; }
-  .recurso-body{ padding:1.3rem; flex:1; display:flex; flex-direction:column; }
-  .recurso-body h3{ color:var(--azul); font-size:1rem; margin-bottom:.5rem; }
-  .recurso-body p{ font-size:.85rem; color:#666; margin-bottom:1rem; flex:1; }
-  .recurso-body a{ background:var(--dorado); color:#fff; text-decoration:none; padding:.6rem 1.2rem; border-radius:20px; text-align:center; font-weight:600; font-size:.85rem; }
-  .recurso-body a:hover{ background:#e08b3e; }
-
-  /* EQUIPO */
-  .equipo-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; max-width:1200px; margin:0 auto 3rem; }
-  .miembro{ background:#fff; padding:1.5rem; border-radius:15px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,.08); border-top:4px solid var(--dorado); }
-  .avatar{ width:70px; height:70px; border-radius:50%; background:var(--azul); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:bold; margin:0 auto .8rem; }
-  .miembro h4{ color:var(--azul); font-size:1rem; }
-  .miembro .rol{ color:var(--dorado); font-size:.82rem; font-weight:600; margin-bottom:.5rem; }
-  .miembro p{ font-size:.82rem; color:#666; }
-
-  /* FOOTER */
-  footer{ background:var(--azul); color:#fff; text-align:center; padding:2rem 1rem; font-size:.85rem; }
-  footer a{ color:var(--dorado); margin:0 .5rem; text-decoration:none; }
-
-  @media(max-width:900px){
-    .hero h1{ font-size:1.6rem; }
-    nav{ width:100%; justify-content:center; }
-    nav button{ font-size:.7rem; padding:.4rem .5rem; }
-    main{ padding-top:120px; }
-  }
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -278,7 +108,9 @@
       <h2 class="section-title">Sedes de la Fundación</h2>
       <p class="section-sub">Una sede principal y tres sucursales en el interior del país</p>
       <div class="sedes-grid">
+
         <div class="sede-card principal">
+          <img src="assets/img/sede-principal.jpg" alt="Sede Principal" class="sede-img">
           <div class="sede-header"><h3>🏢 Sede Principal</h3><small>Edificio de dos pisos</small></div>
           <div class="sede-body">
             <p><strong>Ubicación:</strong> Caracas, Distrito Capital</p>
@@ -287,7 +119,9 @@
             <p><strong>Soporte:</strong> Presencial (Dpto. Tecnología, piso 2)</p>
           </div>
         </div>
+
         <div class="sede-card">
+          <img src="assets/img/sucursal-1.jpg" alt="Sucursal 1" class="sede-img">
           <div class="sede-header"><h3>📍 Sucursal 1</h3><small>Interior del país</small></div>
           <div class="sede-body">
             <p><strong>Ubicación:</strong> Interior del país</p>
@@ -295,7 +129,9 @@
             <p><strong>Dependencia:</strong> Total del Dpto. de Tecnología</p>
           </div>
         </div>
+
         <div class="sede-card">
+          <img src="assets/img/sucursal-2.jpg" alt="Sucursal 2" class="sede-img">
           <div class="sede-header"><h3>📍 Sucursal 2</h3><small>Interior del país</small></div>
           <div class="sede-body">
             <p><strong>Ubicación:</strong> Interior del país</p>
@@ -303,7 +139,9 @@
             <p><strong>Dependencia:</strong> Total del Dpto. de Tecnología</p>
           </div>
         </div>
+
         <div class="sede-card">
+          <img src="assets/img/sucursal-3.jpg" alt="Sucursal 3" class="sede-img">
           <div class="sede-header"><h3>📍 Sucursal 3</h3><small>Interior del país</small></div>
           <div class="sede-body">
             <p><strong>Ubicación:</strong> Interior del país</p>
@@ -311,6 +149,7 @@
             <p><strong>Dependencia:</strong> Total del Dpto. de Tecnología</p>
           </div>
         </div>
+
       </div>
     </section>
   </div>
@@ -470,7 +309,7 @@
     </section>
   </div>
 
-  <!-- RECURSOS / DRIVE -->
+  <!-- RECURSOS -->
   <div id="recursos" class="pestana">
     <section>
       <h2 class="section-title">Recursos del Equipo</h2>
@@ -484,7 +323,7 @@
           <div class="recurso-body">
             <h3>Video — Sesión 1</h3>
             <p>Presentación del caso de estudio y diagnóstico inicial.</p>
-            <a href="#" target="_blank">Abrir en Drive</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Abrir en Drive</a>
           </div>
         </div>
         <div class="recurso-card">
@@ -492,7 +331,7 @@
           <div class="recurso-body">
             <h3>Presentación — Sesión 2</h3>
             <p>Organigrama, sedes e inventario tecnológico.</p>
-            <a href="#" target="_blank">Abrir en Drive</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Abrir en Drive</a>
           </div>
         </div>
         <div class="recurso-card">
@@ -500,7 +339,7 @@
           <div class="recurso-body">
             <h3>PDF — Sesión 3</h3>
             <p>Informe de diagnóstico y propuesta de solución.</p>
-            <a href="#" target="_blank">Abrir en Drive</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Abrir en Drive</a>
           </div>
         </div>
       </div>
@@ -562,62 +401,13 @@
   <p><strong>Fundación Nacional por el Turismo Social en Venezuela</strong></p>
   <p style="margin-top:.5rem;">Caso de Estudio — Departamento de Tecnología</p>
   <p style="margin-top:.8rem;">
-    <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a>
+    <a href="#" rel="noopener noreferrer">Instagram</a> |
+    <a href="#" rel="noopener noreferrer">Facebook</a> |
+    <a href="#" rel="noopener noreferrer">WhatsApp</a>
   </p>
   <p style="margin-top:.8rem; opacity:.7;">© 2026 — Todos los derechos reservados.</p>
 </footer>
 
-<script>
-  // =========================================================
-  // NAVEGACIÓN POR PESTAÑAS
-  // =========================================================
-  function mostrarPestana(id, boton) {
-    // 1. Ocultar todas las pestañas
-    document.querySelectorAll('.pestana').forEach(function(p) {
-      p.classList.remove('activa');
-    });
-
-    // 2. Mostrar la pestaña seleccionada
-    var target = document.getElementById(id);
-    if (target) {
-      target.classList.add('activa');
-    }
-
-    // 3. Actualizar botón activo del menú
-    document.querySelectorAll('#menu button').forEach(function(b) {
-      b.classList.remove('activo');
-    });
-    if (boton) {
-      boton.classList.add('activo');
-    } else {
-      // Si viene de un botón interno (ej. "Conoce la Fundación"),
-      // buscamos el botón correspondiente en el menú
-      var mapa = ['inicio','identidad','organigrama','sedes','departamentos',
-                  'diagnostico','inventario','soporte','recursos','equipo'];
-      var idx = mapa.indexOf(id);
-      var botones = document.querySelectorAll('#menu button');
-      if (idx >= 0 && botones[idx]) botones[idx].classList.add('activo');
-    }
-
-    // 4. Volver arriba
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // =========================================================
-  // FILTRO DE LA TABLA DE INVENTARIO
-  // =========================================================
-  function filtrarTabla() {
-    var sede = document.getElementById('filtroSede').value;
-    var estado = document.getElementById('filtroEstado').value;
-    var filas = document.querySelectorAll('#tablaEquipos tbody tr');
-
-    filas.forEach(function(fila) {
-      var okSede = !sede || fila.dataset.sede === sede;
-      var okEstado = !estado || fila.dataset.estado === estado;
-      fila.style.display = (okSede && okEstado) ? '' : 'none';
-    });
-  }
-</script>
-
+<script src="js/script.js"></script>
 </body>
 </html>
