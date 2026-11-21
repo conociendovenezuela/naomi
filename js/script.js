@@ -22,7 +22,7 @@ function mostrarPestana(id, boton) {
   } else {
     // Si viene de un botón interno, buscamos el botón correspondiente en el menú
     var mapa = ['inicio','','organigrama','sedes','',
-                '','inventario','soporte','',''];
+                '','inventario','soporte','sesiones',''];
     var idx = mapa.indexOf(id);
     var botones = document.querySelectorAll('#menu button');
     if (idx >= 0 && botones[idx]) botones[idx].classList.add('activo');
