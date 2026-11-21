@@ -34,13 +34,13 @@ main{ padding-top:85px; min-height:100vh; }
 @keyframes aparecer{ from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
 
 /* =========================================================
-   HERO (fondo con santo_angel.jpg)
+   HERO
    ========================================================= */
 .hero{
   min-height:calc(100vh - 85px);
   background:linear-gradient(rgba(0,63,125,.75),rgba(0,63,125,.75)),
     url('../assets/img/santo_angel.jpg') center/cover no-repeat;
-  background-color:var(--azul); /* respaldo si la imagen no carga */
+  background-color:var(--azul);
   display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center; color:#fff; padding:2rem 1rem;
 }
@@ -112,4 +112,95 @@ section{ padding:3rem 5%; }
 .dept-card{ background:#fff; padding:1.8rem 1.5rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.08); border-bottom:4px solid var(--azul-claro); }
 .dept-card h3{ color:var(--azul); margin-bottom:.6rem; font-size:1.05rem; }
 .dept-card p{ color:#666; font-size:.88rem; margin-bottom:.8rem; }
-.dept-card .problema{ font-size:.8rem; color:var(--rojo); background:#f
+.dept-card .problema{ font-size:.8rem; color:var(--rojo); background:#fdecee; padding:.6rem .8rem; border-radius:8px; border-left:3px solid var(--rojo); }
+
+/* =========================================================
+   ALERTA
+   ========================================================= */
+.alerta{ max-width:1000px; margin:0 auto 2rem; background:#fdecee; border-left:5px solid var(--rojo); padding:1rem 1.5rem; border-radius:8px; font-size:.9rem; color:#7a1a24; }
+
+/* =========================================================
+   FLUJO
+   ========================================================= */
+.flujo{ max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; }
+.paso{ background:#fff; padding:1.5rem 1rem; border-radius:12px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,.08); border-top:4px solid var(--azul-claro); }
+.paso .numero{ background:var(--azul); color:#fff; width:35px; height:35px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; margin:0 auto .7rem; }
+.paso h4{ color:var(--azul); font-size:.95rem; margin-bottom:.4rem; }
+.paso p{ font-size:.82rem; color:#666; }
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+.tabla-wrapper{ overflow-x:auto; max-width:1300px; margin:0 auto; }
+table{ width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.08); min-width:1000px; }
+thead{ background:var(--azul); color:#fff; }
+th,td{ padding:.7rem; text-align:left; font-size:.82rem; }
+tbody tr{ border-bottom:1px solid #eee; }
+tbody tr:hover{ background:#f9fbfd; }
+.estado{ padding:.2rem .6rem; border-radius:20px; font-size:.72rem; font-weight:600; color:#fff; display:inline-block; white-space:nowrap; }
+.estado.operativo{ background:var(--verde); }
+.estado.critico{ background:var(--rojo); }
+.estado.reparacion{ background:var(--dorado); }
+.estado.obsoleto{ background:var(--naranja); }
+.filtros{ display:flex; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; justify-content:center; }
+.filtros select{ padding:.55rem 1rem; border-radius:8px; border:1px solid #ddd; background:#fff; font-family:inherit; font-size:.85rem; }
+.resumen{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; max-width:1300px; margin:0 auto 2rem; }
+.num-card{ background:var(--azul); color:#fff; padding:1.1rem; border-radius:12px; text-align:center; }
+.num-card .num{ font-size:1.6rem; font-weight:bold; }
+.num-card .lbl{ font-size:.78rem; opacity:.9; }
+.num-card.rojo{ background:var(--rojo); }
+.num-card.naranja{ background:var(--naranja); }
+.num-card.verde{ background:var(--verde); }
+
+/* =========================================================
+   SOPORTE FORM
+   ========================================================= */
+.soporte{ background:var(--gris); }
+.soporte-wrapper{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2.5rem; max-width:1100px; margin:0 auto; }
+.soporte-info h3{ color:var(--azul); margin-bottom:1rem; }
+.soporte-info ul{ list-style:none; }
+.soporte-info li{ padding:.7rem 0; border-bottom:1px solid #ddd; font-size:.9rem; }
+.soporte-info li strong{ color:var(--azul-claro); }
+form{ display:flex; flex-direction:column; gap:.8rem; background:#fff; padding:2rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.08); }
+form h3{ color:var(--azul); margin-bottom:.5rem; }
+input,select,textarea{ padding:.8rem; border:1px solid #ddd; border-radius:10px; font-size:.9rem; font-family:inherit; }
+textarea{ min-height:90px; resize:vertical; }
+label{ font-size:.85rem; color:#555; font-weight:500; }
+
+/* =========================================================
+   RECURSOS
+   ========================================================= */
+.recursos-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
+.recurso-card{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.08); display:flex; flex-direction:column; }
+.recurso-icono{ background:var(--azul-claro); color:#fff; padding:1.5rem; text-align:center; font-size:2.5rem; }
+.recurso-body{ padding:1.3rem; flex:1; display:flex; flex-direction:column; }
+.recurso-body h3{ color:var(--azul); font-size:1rem; margin-bottom:.5rem; }
+.recurso-body p{ font-size:.85rem; color:#666; margin-bottom:1rem; flex:1; }
+.recurso-body a{ background:var(--dorado); color:#fff; text-decoration:none; padding:.6rem 1.2rem; border-radius:20px; text-align:center; font-weight:600; font-size:.85rem; }
+.recurso-body a:hover{ background:#e08b3e; }
+
+/* =========================================================
+   EQUIPO
+   ========================================================= */
+.equipo-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; max-width:1200px; margin:0 auto 3rem; }
+.miembro{ background:#fff; padding:1.5rem; border-radius:15px; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,.08); border-top:4px solid var(--dorado); }
+.avatar{ width:70px; height:70px; border-radius:50%; background:var(--azul); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:bold; margin:0 auto .8rem; }
+.miembro h4{ color:var(--azul); font-size:1rem; }
+.miembro .rol{ color:var(--dorado); font-size:.82rem; font-weight:600; margin-bottom:.5rem; }
+.miembro p{ font-size:.82rem; color:#666; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer{ background:var(--azul); color:#fff; text-align:center; padding:2rem 1rem; font-size:.85rem; }
+footer a{ color:var(--dorado); margin:0 .5rem; text-decoration:none; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width:900px){
+  .hero h1{ font-size:1.6rem; }
+  nav{ width:100%; justify-content:center; }
+  nav button{ font-size:.7rem; padding:.4rem .5rem; }
+  main{ padding-top:120px; }
+}
