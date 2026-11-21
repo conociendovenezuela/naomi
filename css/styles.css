@@ -67,8 +67,8 @@ section{ padding:3rem 5%; }
    MISIÓN / VISIÓN
    ========================================================= */
 .mv-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; max-width:1100px; margin:0 auto; }
-.mv-card{ background:var(--gris); padding:2rem 1.8rem; border-radius:15px; border-top:5px solid var(--azul-claro); box-shadow:0 5px 20px rgba(0,0,0,.07); }
-.mv-card h3{ color:var(--azul); font-size:1.3rem; margin-bottom:.8rem; }
+.mv-card{ background:var(--gris); padding:2rem 1.8rem; border-radius:15px; border-top:5px solid var(--azul-claro); box-shadow:0 5px 20px rgba(0,0,0,.07); text-align: justify; }
+.mv-card h3{ color:var(--azul); font-size:1.3rem; margin-bottom:.8rem; text-align: left; }
 .mv-card ul{ margin-left:1.2rem; margin-top:.5rem; }
 .mv-card li{ margin-bottom:.4rem; font-size:.93rem; }
 
