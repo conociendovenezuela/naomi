@@ -39,7 +39,7 @@ main{ padding-top:85px; min-height:100vh; }
 .hero{
   min-height:calc(100vh - 85px);
   background:linear-gradient(rgba(0,63,125,.8),rgba(0,63,125,.8)),
-    url('../assets/img/hero.jpg') center/cover;
+    url('../assets/img/santo_angel.jpg') center/cover;
   display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center; color:#fff; padding:2rem 1rem;
 }
