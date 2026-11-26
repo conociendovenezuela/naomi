@@ -187,42 +187,51 @@
   <div id="inventario" class="pestana">
     <section>
       <h2 class="section-title">Inventario de Equipos</h2>
-      <p class="section-sub">Modelos, marcas, memoria RAM, ubicación y problemas</p>
+      <p class="section-sub">Modelos, marcas, memoria RAM, ubicación y problemas (40 equipos)</p>
       <div class="resumen">
         <div class="num-card"><div class="num">40</div><div class="lbl">Equipos totales</div></div>
-        <div class="num-card naranja"><div class="num">12</div><div class="lbl">Obsoletos / fallas</div></div>
-        <div class="num-card rojo"><div class="num">4</div><div class="lbl">Sedes afectadas</div></div>
-        <div class="num-card verde"><div class="num">2</div><div class="lbl">Técnicos</div></div>
+        <div class="num-card naranja"><div class="num">6</div><div class="lbl">Obsoletos</div></div>
+        <div class="num-card rojo"><div class="num">9</div><div class="lbl">Fallas / Críticos</div></div>
+        <div class="num-card verde"><div class="num">25</div><div class="lbl">Operativos</div></div>
       </div>
       <div class="filtros">
         <select id="filtroSede" onchange="filtrarTabla()">
           <option value="">Todas las sedes</option>
-          <option>Sede Principal</option><option>Sucursal 1</option>
-          <option>Sucursal 2</option><option>Sucursal 3</option>
+          <option>Sede Principal</option>
+          <option>Sucursal 1</option>
+          <option>Sucursal 2</option>
+          <option>Sucursal 3</option>
         </select>
         <select id="filtroEstado" onchange="filtrarTabla()">
           <option value="">Todos los estados</option>
-          <option>Operativo</option><option>Obsoleto</option>
-          <option>En reparación</option><option>Crítico</option>
+          <option>Operativo</option>
+          <option>Obsoleto</option>
+          <option>En reparación</option>
+          <option>Crítico</option>
         </select>
       </div>
       <div class="tabla-wrapper">
         <table id="tablaEquipos">
           <thead>
             <tr>
-              <th>Código</th><th>Marca</th><th>Modelo</th><th>RAM</th>
-              <th>Procesador</th><th>SO</th><th>Departamento</th>
-              <th>Sede</th><th>Estado</th><th>Problema</th>
+              <th>Código</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>RAM</th>
+              <th>Procesador</th>
+              <th>SO</th>
+              <th>Departamento</th>
+              <th>Sede</th>
+              <th>Estado</th>
+              <th>Problema</th>
             </tr>
           </thead>
-          <tbody>
-
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </section>
   </div>
-
+  
   <!-- SOPORTE -->
   <div id="soporte" class="pestana">
     <section class="soporte">
